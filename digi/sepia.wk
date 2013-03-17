@@ -1,0 +1,89 @@
+# Khoros Visual Programming Workspace
+#
+# cantata workspace file (/home/kari/Asztal/sepia.wk) was created 
+# on Fri Mar 15 19:45:48 2013
+# by user kari
+#
+
+WorkspaceBegin: 2.1
+
+VariablesBegin:
+
+
+
+# No variables currently declared. #
+
+VariablesEnd:
+
+#  Glyph 'RGB Images'
+Glyph:SAMPLEDATA:rgbimages::localhost:1:22:102::  -rgbimage image:lizard-rgb -pseudoimage image:lizard
+
+#  Glyph 'Extract 1st band'
+Glyph:COLOR:cpext1band::localhost:3:182:42:: 
+
+#  Glyph 'Extract 2nd band'
+Glyph:COLOR:cpext2band::localhost:5:182:122:: 
+
+#  Glyph 'Extract 3rd band'
+Glyph:COLOR:cpext3band::localhost:7:182:222:: 
+
+#  Glyph 'Multiply'
+Glyph:DATAMANIP:kmul::localhost:9:302:42:: -real '0.43' 
+
+#  Glyph 'Multiply'
+Glyph:DATAMANIP:kmul::localhost:11:302:122:: -real '0.25' 
+
+#  Glyph 'Multiply'
+Glyph:DATAMANIP:kmul::localhost:13:302:222:: -real '0.07' 
+
+#  Glyph 'Display Image'
+Glyph:ENVISION:putimage::localhost:15:762:202:: -xoffset '0' -yoffset '0' -complex 5 -normaltype 1 -normalmethod 1 -redcol 1 -greencol 2 -bluecol 3 -redfn 'M0' -greenfn 'M1' -bluefn 'M2' 
+
+#  Glyph 'Join 2 Bands'
+Glyph:COLOR:cpjoin2bands::localhost:17:442:62:: 
+
+#  Glyph 'Join 2 Bands'
+Glyph:COLOR:cpjoin2bands::localhost:19:502:202:: 
+
+#  Glyph 'Compress Colors'
+Glyph:IMAGE:igamut::localhost:21:642:202:: -n '255' -p '8' -r '1.0000' 
+
+
+#  Connections 'RGB Images'
+NodeConnection:data:1:rgbimage:3:i:
+NodeConnection:data:1:rgbimage:5:i:
+NodeConnection:data:1:rgbimage:7:i:
+
+#  Connections 'Extract 1st band'
+NodeConnection:data:3:o:9:i1:
+
+#  Connections 'Extract 2nd band'
+NodeConnection:data:5:o:11:i1:
+
+#  Connections 'Extract 3rd band'
+NodeConnection:data:7:o:13:i1:
+
+#  Connections 'Multiply'
+NodeConnection:data:9:o:17:i1:
+
+#  Connections 'Multiply'
+NodeConnection:data:11:o:17:i2:
+
+#  Connections 'Multiply'
+NodeConnection:data:13:o:19:i2:
+
+#  Connections 'Display Image'
+
+#  Connections 'Join 2 Bands'
+NodeConnection:data:17:o:19:i1:
+
+#  Connections 'Join 2 Bands'
+NodeConnection:data:19:o:21:i:
+
+#  Connections 'Compress Colors'
+NodeConnection:data:21:o:15:i:
+
+AnnotationsBegin
+AnnotationsEnd
+
+WorkspaceEnd: 2.1
